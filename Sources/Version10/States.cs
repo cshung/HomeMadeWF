@@ -8,7 +8,7 @@
     [Serializable]
     public class States
     {
-        public Dictionary<string, string> Contents = new Dictionary<string, string>();
+        public Dictionary<string, object> Contents = new Dictionary<string, object>();
         public Dictionary<string, Bookmark> bookmarks = new Dictionary<string, Bookmark>();
         public Collection<Frame> Frames = new Collection<Frame>();
         public int sequenceCounter;
