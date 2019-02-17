@@ -11,13 +11,13 @@
 
         public override void Execute()
         {
-            file1Content = File.ReadAllText(@"c:\file1.txt");
+            file1Content = File.ReadAllText(@"c:\temp\file1.txt");
             this.NextDelegate = new Action(this.RunStep2);
         }
 
         public void RunStep2()
         {
-            file2Content = File.ReadAllText(@"c:\file2.txt");
+            file2Content = File.ReadAllText(@"c:\temp\file2.txt");
             this.NextDelegate = new Action(this.RunStep3);
         }
 

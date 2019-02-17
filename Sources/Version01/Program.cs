@@ -9,7 +9,7 @@
     [Serializable]
     public class Program
     {
-        const string stateFileName = @"c:\execution.dat";
+        const string stateFileName = @"c:\temp\execution.dat";
         string file1Content;
         string file2Content;
 
@@ -28,13 +28,13 @@
 
         public void RunStep1()
         {
-            file1Content = File.ReadAllText(@"c:\file1.txt");
+            file1Content = File.ReadAllText(@"c:\temp\file1.txt");
             SaveAt(this.RunStep2);
         }
 
         public void RunStep2()
         {
-            file2Content = File.ReadAllText(@"c:\file2.txt");
+            file2Content = File.ReadAllText(@"c:\temp\file2.txt");
             SaveAt(this.RunStep3);
         }
 
@@ -47,14 +47,14 @@
 
         static void SetupProgramExecution()
         {
-            File.WriteAllText(@"c:\file1.txt", "Hello world to ");
-            File.WriteAllText(@"c:\file2.txt", "homemade workflow foundation!");
+            File.WriteAllText(@"c:\temp\file1.txt", "Hello world to ");
+            File.WriteAllText(@"c:\temp\file2.txt", "homemade workflow foundation!");
         }
 
         static void CleanupProgramExecution()
         {
-            File.Delete(@"c:\file1.txt");
-            File.Delete(@"c:\file2.txt");
+            File.Delete(@"c:\temp\file1.txt");
+            File.Delete(@"c:\temp\file2.txt");
         }
 
         static void SaveAt(Action action)

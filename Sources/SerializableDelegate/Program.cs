@@ -17,17 +17,17 @@
         public static void Main()
         {
             Func<string, string> func = new Program("Hello {0}!").Greet;
-            using (FileStream stream = File.Create(@"c:\delegate.dat"))
+            using (FileStream stream = File.Create(@"c:\temp\delegate.dat"))
             {
                 new BinaryFormatter().Serialize(stream, func);
                 stream.Close();
             }
-            using (FileStream stream = File.OpenRead(@"c:\delegate.dat"))
+            using (FileStream stream = File.OpenRead(@"c:\temp\delegate.dat"))
             {
                 Console.WriteLine(((Func<string, string>)new BinaryFormatter().Deserialize(stream))("Andrew"));
                 stream.Close();
             }
-            File.Delete(@"c:\delegate.dat");
+            File.Delete(@"c:\temp\delegate.dat");
         }
 
         public string Greet(string name)

@@ -6,7 +6,7 @@
 
     public static class Host
     {
-        const string stateFileName = @"c:\execution.dat";
+        const string stateFileName = @"c:\temp\execution.dat";
 
         public static void Main()
         {
@@ -41,8 +41,8 @@
                             {
                                 Activities = 
                                 {
-                                    new Read { ContentKey = "file1Content", FileName = @"c:\file1.txt" },
-                                    new Read { ContentKey = "file2Content", FileName = @"c:\file2.txt" },
+                                    new Read { ContentKey = "file1Content", FileName = @"c:\temp\file1.txt" },
+                                    new Read { ContentKey = "file2Content", FileName = @"c:\temp\file2.txt" },
                                 }
                             },
                             new Write { Content1Key = "file1Content", Content2Key = "file2Content" }
@@ -56,14 +56,14 @@
 
         private static void SetupProgramExecution()
         {
-            File.WriteAllText(@"c:\file1.txt", "Hello world to ");
-            File.WriteAllText(@"c:\file2.txt", "home made workflow foundation!");
+            File.WriteAllText(@"c:\temp\file1.txt", "Hello world to ");
+            File.WriteAllText(@"c:\temp\file2.txt", "home made workflow foundation!");
         }
 
         private static void CleanupProgramExecution()
         {
-            File.Delete(@"c:\file1.txt");
-            File.Delete(@"c:\file2.txt");
+            File.Delete(@"c:\temp\file1.txt");
+            File.Delete(@"c:\temp\file2.txt");
         }
 
         static void SaveAt(States states)

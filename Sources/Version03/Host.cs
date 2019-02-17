@@ -5,7 +5,7 @@
 
     public static class Host
     {
-        const string stateFileName = @"c:\execution.dat";
+        const string stateFileName = @"c:\temp\execution.dat";
 
         public static void Main()
         {
@@ -39,14 +39,14 @@
 
         static void SetupProgramExecution()
         {
-            File.WriteAllText(@"c:\file1.txt", "Hello world to ");
-            File.WriteAllText(@"c:\file2.txt", "homemade workflow foundation!");
+            File.WriteAllText(@"c:\temp\file1.txt", "Hello world to ");
+            File.WriteAllText(@"c:\temp\file2.txt", "homemade workflow foundation!");
         }
 
         static void CleanupProgramExecution()
         {
-            File.Delete(@"c:\file1.txt");
-            File.Delete(@"c:\file2.txt");
+            File.Delete(@"c:\temp\file1.txt");
+            File.Delete(@"c:\temp\file2.txt");
         }
 
         static void SaveAt(Activity workflow)

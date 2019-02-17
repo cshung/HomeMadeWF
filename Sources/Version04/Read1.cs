@@ -8,7 +8,7 @@
     {
         public override void Execute()
         {
-            base.states.file1Content = File.ReadAllText(@"c:\file1.txt");
+            base.states.file1Content = File.ReadAllText(@"c:\temp\file1.txt");
         }
     }
 }
