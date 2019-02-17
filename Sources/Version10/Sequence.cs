@@ -22,9 +22,17 @@
 
         public override void Execute(Frame frame)
         {
-            if (frame.States.sequenceCounter != this.Activities.Count)
+            object sequenceCounterObject;
+            if (!frame.States.Contents.TryGetValue("sequenceCounter", out sequenceCounterObject))
             {
-                frame.ScheduleActivity(this.Activities[frame.States.sequenceCounter++], this.Execute);
+                sequenceCounterObject = 0;
+                frame.States.Contents.Add("sequenceCounter", sequenceCounterObject);
+            }
+            int sequenceCounter = (int)sequenceCounterObject;
+            if (sequenceCounter != this.Activities.Count)
+            {
+                frame.ScheduleActivity(this.Activities[sequenceCounter++], this.Execute);
+                frame.States.Contents["sequenceCounter"] = sequenceCounter;
             }
         }
     }
