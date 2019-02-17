@@ -16,7 +16,7 @@
 
         public void OnDataAvailable(Frame frame)
         {
-            frame.States.Contents[this.ContentKey] = frame.States.bookmarks[BookmarkName].Object.ToString();
+            frame.ParentFrame.ParentFrame.Contents[this.ContentKey] = frame.States.bookmarks[BookmarkName].Object.ToString();
         }
     }
 }

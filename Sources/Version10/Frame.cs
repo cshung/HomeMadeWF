@@ -6,6 +6,7 @@
     [Serializable]
     public class Frame : IDependency
     {
+        public Dictionary<string, object> Contents = new Dictionary<string, object>();
         Dictionary<IDependency, Action<Frame>> nextDelegatesWithDependencies;
         Stack<Action<Frame>> nextDelegates;
         States states;

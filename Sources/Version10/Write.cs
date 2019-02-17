@@ -11,7 +11,7 @@
 
         public override void Execute(Frame frame)
         {
-            Console.WriteLine((string)frame.States.Contents[this.Content1Key] + (string)frame.States.Contents[this.Content2Key]);
+            Console.WriteLine((string)frame.ParentFrame.Contents[this.Content1Key] + (string)frame.ParentFrame.Contents[this.Content2Key]);
         }
     }
 }
