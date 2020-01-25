@@ -6,7 +6,7 @@ Continue with our last article, we will work on allowing parallelism and create 
 ![7-to-8.png][pic6]
 
 Activities.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -19,7 +19,7 @@ namespace HomeMadeWF
 }
 ```
 Frame.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -85,7 +85,7 @@ namespace HomeMadeWF
 }
 ```
 Host.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -170,7 +170,7 @@ namespace HomeMadeWF
 }
 ```
 Read.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -191,7 +191,7 @@ namespace HomeMadeWF
 }
 ```
 Sequence.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -225,7 +225,7 @@ namespace HomeMadeWF
 }
 ```
 States.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -308,7 +308,7 @@ namespace HomeMadeWF
 }
 ```
 Write.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -333,7 +333,7 @@ We are using the old activities because we want to keep safe. No parallelism fea
 ![8-to-9.png][pic7]
 
 Activity.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -346,7 +346,7 @@ namespace HomeMadeWF
 }
 ```
 Frame.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -412,7 +412,7 @@ namespace HomeMadeWF
 }
 ```
 Host.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -503,7 +503,7 @@ namespace HomeMadeWF
 }
 ```
 Parallel.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -537,7 +537,7 @@ namespace HomeMadeWF
 }
 ```
 Read.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -558,7 +558,7 @@ namespace HomeMadeWF
 }
 ```
 Sequence.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -592,7 +592,7 @@ namespace HomeMadeWF
 }
 ```
 States.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -675,7 +675,7 @@ namespace HomeMadeWF
 }
 ```
 Write.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -699,7 +699,7 @@ Notice the sequential execution of the work despite of the use of `Parallel` act
 ![9-to-10.png][pic8]
 
 Activity.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -712,7 +712,7 @@ namespace HomeMadeWF
 }
 ```
 Bookmark.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -740,7 +740,7 @@ namespace HomeMadeWF
 }
 ```
 Frame.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -816,7 +816,7 @@ namespace HomeMadeWF
 }
 ```
 Host.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -923,7 +923,7 @@ namespace HomeMadeWF
 }
 ```
 IDependency.cs
-```
+```C#
 namespace HomeMadeWF
 {
     public interface IDependency
@@ -932,7 +932,7 @@ namespace HomeMadeWF
 }
 ```
 Parallel.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -966,7 +966,7 @@ namespace HomeMadeWF
 }
 ```
 Read.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -991,7 +991,7 @@ namespace HomeMadeWF
 }
 ```
 Sequence.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -1025,7 +1025,7 @@ namespace HomeMadeWF
 }
 ```
 States.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -1139,7 +1139,7 @@ namespace HomeMadeWF
 }
 ```
 Write.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;

@@ -4,7 +4,7 @@ Andrew Au
 Inspired by the book [Essential Windows Workflow Foundation][1] that describes the last version of Workflow Foundation, I can’t stop myself trying to write an equivalent piece for WF4. While the basic working principle is fundamentally the same, the programming model is quite different. We will start from the same principle of using serialization of delegate, and we will develop our ‘home-made’ workflow runtime, and we will see how WF4 made its design decisions.
 First of all, let’s us review the underlying CLR technology for continuation. Continuation is a point that can be saved for resuming execution, and therefore it needs to contain pointer to executable code. Delegate is used for this purpose. The great thing about delegate can be round-tripped to a binary store and back remain executable. Here is a code sample to show the roundtrip of that delegate works.
 
-```
+```C#
 namespace SerializeDelegate
 {
     using System;
@@ -47,7 +47,7 @@ namespace SerializeDelegate
 
 Serializable delegate provided us with a mechanism to suspend a running managed thread, and resume in another process (perhaps on another machine). Doing so has a lot of advantages. The most important one is that we remove the ‘affinities’. The code is no longer stuck to original process or even the original machine. This allows us to scale the application by simply adding more machines. Moreover, we now have control. For example, we could delete the serialized delegate instead of resuming it. By doing so, we essentially canceled the execution. Similarly, we could suspend the execution for days without worrying main memory are being used. Let us take a look at this code sample to see how serializable delegate allow us to break a program into several processes.
 
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -134,7 +134,7 @@ Run the program three times, you will see “Hello world to homemade workflow fo
 ![1-to-2.png][pic1]
 
 Host.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System.IO;
@@ -208,7 +208,7 @@ namespace HomeMadeWF
 ```
 
 ReadReadWrite.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -251,7 +251,7 @@ The hosting program and the business logic are separated now. At this point, we 
 ![2-to-3.png][pic2]
 
 Host.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System.IO;
@@ -326,7 +326,7 @@ namespace HomeMadeWF
 ```
 
 Activity.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -342,7 +342,7 @@ namespace HomeMadeWF
 ```
 
 ReadReadWrite.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -380,7 +380,7 @@ The refactoring is straightforward. Looking at `ReadReadWrite`, the code is now 
 ![3-to-4.png][pic3]
 
 Activity.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -404,7 +404,7 @@ namespace HomeMadeWF
 ```
 
 Host.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System.IO;
@@ -486,7 +486,7 @@ namespace HomeMadeWF
 ```
 
 Read1.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -503,7 +503,7 @@ namespace HomeMadeWF
 }
 ```
 Read2.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -520,7 +520,7 @@ namespace HomeMadeWF
 }
 ```
 Sequence.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -537,7 +537,7 @@ namespace HomeMadeWF
 }
 ```
 Write.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -551,7 +551,7 @@ namespace HomeMadeWF
 }
 ```
 States.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -569,7 +569,7 @@ It is non-trivial to write the `Sequence` activity, and it is far from optimal f
 
 ![4-to-5.png][pic4]
 Activity.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -592,7 +592,7 @@ namespace HomeMadeWF
 }
 ```
 Host.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System.IO;
@@ -673,7 +673,7 @@ namespace HomeMadeWF
 }
 ```
 Read.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -694,7 +694,7 @@ namespace HomeMadeWF
 }
 ```
 Sequence.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -746,7 +746,7 @@ namespace HomeMadeWF
 }
 ```
 States.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
