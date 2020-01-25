@@ -10,7 +10,7 @@ Reading the code for Activity, the fact that `States` is defined on the workflow
 ![5-to-6.png][pic5]
 
 Activity.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -23,7 +23,7 @@ namespace HomeMadeWF
 }
 ```
 Frame.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -36,7 +36,7 @@ namespace HomeMadeWF
 }
 ```
 Host.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -127,7 +127,7 @@ namespace HomeMadeWF
 }
 ```
 Read.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -148,7 +148,7 @@ namespace HomeMadeWF
 }
 ```
 Sequence.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -183,7 +183,7 @@ namespace HomeMadeWF
 }
 ```
 States.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -199,7 +199,7 @@ namespace HomeMadeWF
 }
 ```
 Write.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -222,7 +222,7 @@ namespace HomeMadeWF
 I tried to keep modification of Version 6 from Version 5 as small as possible. As we are moving the delegate storage from the activity to state, we also optimized `Sequence` execution. For now, executing a particular activity will not pass through sequence, but rather just saving the continuation of the sequence in the stack. Given the code is good now, I will refactor. In particular, we will move more logic into `States` so that the stack is maintained by state instead of being distributed in `Sequence` and `Program`. Making `Frames` a private field drives all these refactorings. All I did is really just giving the right name to the set of operations I did to the states.
 
 Activity.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -235,7 +235,7 @@ namespace HomeMadeWF
 }
 ```
 Frame.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -248,7 +248,7 @@ namespace HomeMadeWF
 }
 ```
 Host.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -332,7 +332,7 @@ namespace HomeMadeWF
 }
 ```
 Read.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -353,7 +353,7 @@ namespace HomeMadeWF
 }
 ```
 Sequence.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -387,7 +387,7 @@ namespace HomeMadeWF
 }
 ```
 States.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
@@ -431,7 +431,7 @@ namespace HomeMadeWF
 }
 ```
 Write.cs
-```
+```C#
 namespace HomeMadeWF
 {
     using System;
